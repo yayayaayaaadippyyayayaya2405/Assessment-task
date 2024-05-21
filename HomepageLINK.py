@@ -1,22 +1,21 @@
 import customtkinter as ctk
 from PIL import Image
-
+from Learn import Learn
 
 ctk.set_appearance_mode("Dark")
-ctk.set_default_color_theme("assessment-task/red.json")
-
+ctk.set_default_color_theme("red.json")
 
 root = ctk.CTk()
 
 
 root.title('MathMarvels:Capturing Volume')
 root.iconbitmap('img1')
-root.geometry('1000x600')
+root.geometry('800x500')
 root.config(bg="#C1E1C1")
 
 
 def learn ():
-    pass
+    start = Learn()
     
 Learn_button = ctk.CTkButton (
     root, 
