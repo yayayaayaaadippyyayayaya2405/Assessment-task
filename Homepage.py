@@ -34,18 +34,15 @@ class Homepage():
         text_color= "#000000",
         command=learn,
 
-    )
-    
-        Learn_button.pack (
-        pady=60
-
         )
+    
+        
 
 
         def formulae ():
             pass
 
-        Formulae_button = ctk.CTkButton (
+        self.Formulae_button = ctk.CTkButton (
         self.root, 
         text = "FORMULAE", 
         bg_color="#C1E1C1",
@@ -54,18 +51,12 @@ class Homepage():
         width=150,
         command=formulae,
 
-)
+        )
 
-    Formulae_button.pack(
-        pady= 1
+       
     
-    )
-img1_label = ctk.CTkLabel (root,
-                          text ="",
-                          image= "Images/Img1.png")
-
-image_1 = ctk.CTkImage (dark_image=Image.open("Images/Img1.png"), 
+        
 
 
 
-self.root.mainloop()
+Homepage()
