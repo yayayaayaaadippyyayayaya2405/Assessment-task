@@ -1,62 +1,21 @@
-import customtkinter as ctk
+from customtkinter import *
 from PIL import Image, ImageTk
 
+#Fonts used throughout the code 
+Title_font = ("Impact", 50, "bold", "underline")
+Button_font = ("Times", 20, "italic")
 
-ctk.set_appearance_mode("Dark")
-ctk.set_default_color_theme("assessment-task/red.json")
+homepage = CTk()
+homepage.title("Math Marvels:Capturing Volume")
+homepage.minsize(width=1000, height = 600)
+homepage.maxsize(width=1000, height = 600)
+homepage.resizable(False,False)
+homepage.config(bg= "#C1E1C1")
+gui_name = (CTkLabel(homepage, text=('Math Marvels: Capturing Volume'), 
+                                  text_color="#4263F5",
+                                  bg_color="#C1E1C1", 
+                                  font = Title_font)
+                                  )
+gui_name.place(x=150,y=20)
 
-
-class Homepage():
-    def __init__ (self):
-        self.root = ctk.CTk()
-
-
-        self.root.title('MathMarvels:Capturing Volume')
-        self.root.iconbitmap('img1')
-        self.root.geometry('1000x600')
-        self.root.config(bg="#C1E1C1")
-
-
-        def learn ():
-            pass
-    
-        Learn_button = ctk.CTkButton (
-        self.root, 
-        text = "LEARN", 
-        bg_color="#C1E1C1",
-        fg_color="#FFFFFF",
-        corner_radius= 20,
-        height=50,
-        width=300,
-        border_color="#82d660",
-        border_width=10,
-        font=("Times New Roman",12),
-        text_color= "#000000",
-        command=learn,
-
-        )
-    
-        
-
-
-        def formulae ():
-            pass
-
-        self.Formulae_button = ctk.CTkButton (
-        self.root, 
-        text = "FORMULAE", 
-        bg_color="#C1E1C1",
-        corner_radius= 20,
-        height=50,
-        width=150,
-        command=formulae,
-
-        )
-
-       
-    
-        
-
-
-
-Homepage()
+homepage.mainloop()
