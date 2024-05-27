@@ -37,8 +37,6 @@ def open_homepage ():
         homepage.destroy ()
         open_quiz ()
 
-    def Homepage_Quit ():
-        homepage.destroy ()
 
     #buttons
     Learn_button = CTkButton(
@@ -79,7 +77,7 @@ def open_homepage ():
         font = Button_font,
         height = 50,
         width = 300,
-        fg_color = "#32A8A0",
+        fg_color = "#F54E42",
         hover_color = "#144A46",
         command = Quiz,
     )
@@ -96,7 +94,7 @@ def open_homepage ():
         width = 60,
         fg_color = "#32A8A0",
         hover_color = "#144A46",
-        command = Homepage_Quit,
+        command = homepage.destroy,
     )
     Homepage_Quit_button.place(x=15,y=20)
 
@@ -111,6 +109,17 @@ def open_homepage ():
                                                     )
     Mr_octopus_homepage_display.place(x=675,y=180)
     
+    Shapes_Image_homepage = CTkImage(light_image=Image.open("Images/homepage_img2.png"), 
+                                   dark_image=Image.open("Images/homepage_img2.png"),
+                                   size=(350,350)
+                                   )
+    Shapes_Image_homepage_display = CTkLabel(homepage,text="",
+                                                    image=Shapes_Image_homepage,
+                                                    bg_color="#C1E1C1"
+                                                    )
+    Shapes_Image_homepage_display.place(x=0,y=150)
+
+
 
     homepage.mainloop()
 
@@ -217,8 +226,6 @@ def open_Learn_window ():
         learn_window.destroy ()
         open_learn_window2 ()
 
-    def Program_Quit ():
-        learn_window.destroy ()
 
     #Buttons for Learn Window 
     homepage_return = CTkButton (
@@ -259,7 +266,7 @@ def open_Learn_window ():
         width = 60,
         fg_color = "#32A8A0",
         hover_color = "#144A46",
-        command = Program_Quit,
+        command = learn_window.destroy,
         )
     close_program.place(x=900,y=60)
 
@@ -352,8 +359,6 @@ def open_learn_window2 ():
         examples_window.destroy ()
         open_Learn_window ()
 
-    def Program_Quit ():
-        examples_window.destroy ()
 
     #Buttons on Examples Page 
     learn_window_return = CTkButton (
@@ -380,7 +385,7 @@ def open_learn_window2 ():
         width = 60,
         fg_color = "#32A8A0",
         hover_color = "#144A46",
-        command = Program_Quit,
+        command = examples_window.destroy,
         )
     close_program.place(x=900,y=60)
 
@@ -406,8 +411,6 @@ def open_formula_sheet ():
         formula_sheet.destroy ()
         open_homepage ()
 
-    def Program_Quit ():
-        formula_sheet.destroy ()
 
     #Buttons for Formulae Window 
     homepage_return = CTkButton (
@@ -437,7 +440,7 @@ def open_formula_sheet ():
         width = 60,
         fg_color = "#32A8A0",
         hover_color = "#144A46",
-        command = Program_Quit,
+        command = formula_sheet.destroy,
         )
     close_program.place(x=900,y=60)
 
@@ -473,6 +476,39 @@ def open_formula_sheet ():
                                      bg_color="#C1E1C1"
                                      )
     Pyramind_Volume_display.place(x=660,y=90)
+
+
+    Sphere_Volume = CTkImage(light_image=Image.open("Images/sphere_volume.png"),
+                             dark_image=Image.open("Images/sphere_volume.png"),
+                             size = (350,350)
+                             )
+    Sphere_Volume_display = CTkLabel(formula_sheet, text="",
+                                     image=Sphere_Volume,
+                                     bg_color="#C1E1C1"
+                                     )
+    Sphere_Volume_display.place(x=10,y=380)
+
+    
+    Cube_Volume = CTkImage(light_image=Image.open("Images/cube_volume.png"),
+                             dark_image=Image.open("Images/cube_volume.png"),
+                             size = (350,350)
+                             )
+    Cube_Volume_display = CTkLabel(formula_sheet, text="",
+                                     image=Cube_Volume,
+                                     bg_color="#C1E1C1"
+                                     )
+    Cube_Volume_display.place(x=335,y=380)
+
+
+    cylinder_Volume = CTkImage(light_image=Image.open("Images/cylinder_volume.png"),
+                             dark_image=Image.open("Images/cylinder_volume.png"),
+                             size = (350,350)
+                             )
+    Cylinder_Volume_display = CTkLabel(formula_sheet, text="",
+                                     image=cylinder_Volume,
+                                     bg_color="#C1E1C1"
+                                     )
+    Cylinder_Volume_display.place(x=660,y=380)
 
 
     formula_sheet.mainloop()
