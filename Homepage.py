@@ -1,6 +1,6 @@
 from customtkinter import *
 from PIL import Image, ImageTk
-from CTkMessagebox import CTkMessagebox
+
 
 #Fonts used throughout the code 
 Title_font = ("Impact", 50, "bold", "underline")
