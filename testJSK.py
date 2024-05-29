@@ -1,6 +1,5 @@
 from customtkinter import *
 from PIL import Image, ImageTk
-from CTkMessagebox import CTkMessagebox
 
 #Fonts used throughout the code 
 Title_font = ("Impact", 50, "bold", "underline")
@@ -8,6 +7,112 @@ Button_font = ("Times", 20, "italic")
 Subittle_font1 = ("Impact", 30, "bold", "italic")
 Subheading_font = ("Impact", 20, "italic")
 Text_font = (("courior", 13))
+
+current_question_index = 0
+score = 0
+
+questions = [
+    {
+        "question": "What year did World War II start?",
+        "options": ["1939", "1941", "1942", "1945"],
+        "answer": "1939"
+    },
+    {
+        "question": "When did World War II end?",
+        "options": ["1945", "1946", "1947", "1948"],
+        "answer": "1945"
+    },
+    {
+        "question": "Which country was not part of the Axis Powers in World War II?",
+        "options": ["Germany", "Japan", "Italy", "France"],
+        "answer": "France"
+    },
+    {
+        "question": "Who was the Prime Minister of the United Kingdom during most of World War II?",
+        "options": ["Winston Churchill", "Neville Chamberlain", "Clement Attlee", "Stanley Baldwin"],
+        "answer": "Winston Churchill"
+    },
+    {
+        "question": "Which event led to the United States entering World War II?",
+        "options": ["Attack on Pearl Harbor", "Battle of Stalingrad", "D-Day", "Bombing of Hiroshima"],
+        "answer": "Attack on Pearl Harbor"
+    },
+    {
+        "question": "What year did World War II start?",
+        "options": ["1939", "1941", "1942", "1945"],
+        "answer": "1939"
+    },
+    {
+        "question": "When did World War II end?",
+        "options": ["1945", "1946", "1947", "1948"],
+        "answer": "1945"
+    },
+    {
+        "question": "Which country was not part of the Axis Powers in World War II?",
+        "options": ["Germany", "Japan", "Italy", "France"],
+        "answer": "France"
+    },
+    {
+        "question": "Who was the Prime Minister of the United Kingdom during most of World War II?",
+        "options": ["Winston Churchill", "Neville Chamberlain", "Clement Attlee", "Stanley Baldwin"],
+        "answer": "Winston Churchill"
+    },
+    {
+        "question": "Which event led to the United States entering World War II?",
+        "options": ["Attack on Pearl Harbor", "Battle of Stalingrad", "D-Day", "Bombing of Hiroshima"],
+        "answer": "Attack on Pearl Harbor"
+    },
+    {
+        "question": "What year did World War II start?",
+        "options": ["1939", "1941", "1942", "1945"],
+        "answer": "1939"
+    },
+    {
+        "question": "When did World War II end?",
+        "options": ["1945", "1946", "1947", "1948"],
+        "answer": "1945"
+    },
+    {
+        "question": "Which country was not part of the Axis Powers in World War II?",
+        "options": ["Germany", "Japan", "Italy", "France"],
+        "answer": "France"
+    },
+    {
+        "question": "Who was the Prime Minister of the United Kingdom during most of World War II?",
+        "options": ["Winston Churchill", "Neville Chamberlain", "Clement Attlee", "Stanley Baldwin"],
+        "answer": "Winston Churchill"
+    },
+    {
+        "question": "Which event led to the United States entering World War II?",
+        "options": ["Attack on Pearl Harbor", "Battle of Stalingrad", "D-Day", "Bombing of Hiroshima"],
+        "answer": "Attack on Pearl Harbor"
+    },
+    {
+        "question": "What year did World War II start?",
+        "options": ["1939", "1941", "1942", "1945"],
+        "answer": "1939"
+    },
+    {
+        "question": "When did World War II end?",
+        "options": ["1945", "1946", "1947", "1948"],
+        "answer": "1945"
+    },
+    {
+        "question": "Which country was not part of the Axis Powers in World War II?",
+        "options": ["Germany", "Japan", "Italy", "France"],
+        "answer": "France"
+    },
+    {
+        "question": "Who was the Prime Minister of the United Kingdom during most of World War II?",
+        "options": ["Winston Churchill", "Neville Chamberlain", "Clement Attlee", "Stanley Baldwin"],
+        "answer": "Winston Churchill"
+    },
+    {
+        "question": "Which event led to the United States entering World War II?",
+        "options": ["Attack on Pearl Harbor", "Battle of Stalingrad", "D-Day", "Bombing of Hiroshima"],
+        "answer": "Attack on Pearl Harbor"
+    }
+]
 
 #Homepage Code 
 def open_homepage ():
@@ -36,7 +141,7 @@ def open_homepage ():
 
     def Quiz ():
         homepage.destroy ()
-        open_quiz ()
+        Open_Quiz()
 
 
     #buttons
@@ -542,133 +647,78 @@ def open_formula_sheet ():
 
     formula_sheet.mainloop()
 
-#code for the quiz
-def open_quiz():
-    quiz_window = CTk()
-    quiz_window.title("Math Marvels: Capturing Volume")
-    quiz_window.minsize(width=1000, height=600)
-    quiz_window.maxsize(width=1000, height=600)
-    quiz_window.resizable(False, False)
-    quiz_window.config(bg="#C1E1C1")
+# Code for the quiz
+def Open_Quiz():
+    global current_question_index, score
+    current_question_index = 0
+    score = 0
+    quiz = CTk()
+    quiz.title("Math Marvels:Capturing Volume")
+    quiz.minsize(width=1000, height = 700)
+    quiz.maxsize(width=1000, height = 700)
+    quiz.resizable(False,False)
+    quiz.config(bg= "#C1E1C1")
+    quiz_page_tittle = (CTkLabel(quiz, text=('Formula Sheet For Quiz!!!'), 
+                                  text_color="#4263F5",
+                                  bg_color="#C1E1C1", 
+                                  font = Title_font)
+                                  )
+    quiz_page_tittle.place(x=20,y=20)
 
-    quiz_window_title = CTkLabel(quiz_window, text='Quiz Regarding Volume ;)',
-                                  text_color="#4263F5", bg_color="#C1E1C1", font=Title_font)
-    quiz_window_title.place(x=150, y=20)
-
-    # Questions and Answers
-    questions = [
-        "1. What is the volume of a cube with side length 3 units?",
-        "2. What is the volume of a cylinder with radius 2 units and height 5 units?",
-        "3. What is the volume of a sphere with radius 4 units?",
-        "4. What is the volume of a cone with radius 3 units and height 9 units?",
-        "5. What is the volume of a rectangular prism with dimensions 4x5x6 units?",
-        "6. What is the volume of a pyramid with base area 10 square units and height 3 units?",
-        "7. What is the volume of a cube with side length 7 units?",
-        "8. Type the volume of a sphere with radius 5 units (in terms of π):",
-        "9. Type the volume of a cylinder with radius 3 units and height 7 units (in terms of π):",
-        "10. Type the volume of a cube with side length 2 units:",
-        "11. True or False: The volume of a cube with side length 4 units is 64 cubic units.",
-        "12. True or False: The volume of a sphere is given by the formula V = 4/3 πr³.",
-        "13. True or False: The volume of a cone with radius 3 units and height 6 units is 18π cubic units.",
-        "14. True or False: The volume of a rectangular prism is calculated as length × width × height.",
-        "15. True or False: The volume of a cylinder with radius 2 units and height 5 units is 20 cubic units."
-    ]
-
-    options = [
-    [("9 cubic units", "a1"), ("27 cubic units", "a2"), ("18 cubic units", "a3"), ("36 cubic units", "a4")],
-    [("20π cubic units", "b1"), ("(write correct answer here)", "b2"), ("60π cubic units", "b3"), ("80π cubic units", "b4")],
-    [("(write correct answer here)", "c1"), ("128π cubic units", "c2"), ("256π cubic units", "c3"), ("512π cubic units", "c4")],
-    [("(27π cubic units)", "d1"), ("81π cubic units", "d2"), ("(write correct answer here)", "d3"), ("108π cubic units", "d4")],
-    [("(write correct answer here)", "e1"), ("110 cubic units", "e2"), ("130 cubic units", "e3"), ("140 cubic units", "e4")],
-    [("10 cubic units", "f1"), ("20 cubic units", "f2"), ("30 cubic units", "f3"), ("(write correct answer here)", "f4")],
-    [("(write correct answer here)", "g1"), ("421 cubic units", "g2"), ("512 cubic units", "g3"), ("729 cubic units", "g4")],
-    [("True", "h1"), ("False", "h2")],
-    [("True", "i1"), ("False", "i2")],
-    [("True", "j1"), ("False", "j2")],
-    [("True", "k1"), ("False", "k2")],
-    [("True", "l1"), ("False", "l2")]
-    ]
-
-
-    correct_answers = ["a2", "b2", "c1", "d3", "e1", "f4", "g1", "(write answer here)", "(write answer here)", "((write correct answer here))", "h1", "i1", "h2", "h1", "h2"]
-
-    # Store user's answers
-    user_answers = {i + 1: StringVar() for i in range(15)}
-    user_entries = {}
-
-    # Function to display question
-    def display_question(index):
-        for widget in quiz_window.winfo_children():
-            if widget not in [homepage_return, close_program, quiz_window_title]:
-                widget.destroy()
-
-        question_label = CTkLabel(quiz_window, text=questions[index], text_color="#3F49A4", bg_color="#C1E1C1", font=Text_font)
-        question_label.place(x=40, y=100)
-
-        if index < 7:
-            option_y_offset = 130
-            for option_text, option_value in options[index]:
-                option_button = CTkRadioButton(quiz_window, text=option_text, value=option_value, variable=user_answers[index + 1], bg_color="#C1E1C1", text_color="#3F49A4", font=Text_font)
-                option_button.place(x=60, y=option_y_offset)
-                option_y_offset += 30
-        elif 7 <= index < 10:
-            user_entries[index + 1] = CTkEntry(quiz_window, textvariable=user_answers[index + 1], font=Text_font, width=200)
-            user_entries[index + 1].place(x=60, y=130)
+    def check_answer(selected_option):
+        global current_question_index, score
+        print(current_question_index)
+        correct_answer = questions[current_question_index]["answer"]
+        if selected_option == correct_answer:
+            score += 1
+        current_question_index += 1
+        if current_question_index < len(questions):
+            question_text.set(questions[current_question_index]["question"])
+            score_label.config(text="Score: {}/{}".format(score, len(questions)))
+            for i in range(4):
+                option_buttons[i].config(text=questions[current_question_index]["options"][i])
         else:
-            option_y_offset = 130
-            for option_text, option_value in options[index - 3]:
-                option_button = CTkRadioButton(quiz_window, text=option_text, value=option_value, variable=user_answers[index + 1], bg_color="#C1E1C1", text_color="#3F49A4", font=Text_font)
-                option_button.place(x=60, y=option_y_offset)
-                option_y_offset += 30
+            score_label.config(text="Score: {}/{}".format(score, len(questions)))
+            question_text.set("Quiz Completed! Your Final Score: {}/{}".format(score, len(questions)))
+            for button in option_buttons:
+                button.config(state=DISABLED)
+            submit_button.config(state=DISABLED)
+            back_button.config(state=NORMAL)
 
-        previous_button = CTkButton(quiz_window, text="Previous", bg_color="#C1E1C1", corner_radius=10, font=Button_font, height=50, width=150, fg_color="#32A8A0", hover_color="#144A46", command=lambda: handle_navigation(index - 1)) if index > 0 else None
-        if previous_button:
-            previous_button.place(x=200, y=500)
-
-        next_button_text = "Submit" if index == len(questions) - 1 else "Next"
-        next_button = CTkButton(quiz_window, text=next_button_text, bg_color="#C1E1C1", corner_radius=10, font=Button_font, height=50, width=150, fg_color="#32A8A0", hover_color="#144A46", command=lambda: handle_navigation(index + 1))
-        next_button.place(x=400, y=500)
-
-    # Function to handle navigation between questions
-    def handle_navigation(index):
-        if 0 <= index < len(questions):
-            display_question(index)
-        elif index == len(questions):
-            show_score()
-
-    # Function to check the answers and show the score
-    def show_score():
-        score = 0
-        for i, correct_answer in enumerate(correct_answers):
-            if user_answers[i + 1].get().strip() == correct_answer:
-                score += 1
-        percentage = (score / len(questions)) * 100
-        for widget in quiz_window.winfo_children():
-            if widget not in [homepage_return, close_program, quiz_window_title]:
-                widget.destroy()
-        result_text = f"You scored {score} out of {len(questions)} ({percentage:.2f}%)"
-        result_label = CTkLabel(quiz_window, text=result_text, text_color="#4263F5", bg_color="#C1E1C1", font=Subheading_font)
-        result_label.place(x=400, y=250)
-
-        back_to_home_button = CTkButton(quiz_window, text="Back to Home", bg_color="#C1E1C1", corner_radius=20, font=Button_font, height=50, width=150, fg_color="#32A8A0", hover_color="#144A46", command=back_to_homepage)
-        back_to_home_button.place(x=400, y=350)
-
-    # Commands for buttons on Quiz window
-    def back_to_homepage():
-        quiz_window.destroy()
+    def restart_quiz():
+        Open_Quiz.destroy()
         open_homepage()
 
-    # Buttons for Quiz Window
-    homepage_return = CTkButton(quiz_window, text="Back", bg_color="#C1E1C1", corner_radius=20, font=Button_font, height=30, width=60, fg_color="#32A8A0", hover_color="#144A46", command=back_to_homepage)
-    homepage_return.place(x=900, y=20)
+    question_text = StringVar()
+    question_text.set(questions[current_question_index]["question"])
 
-    close_program = CTkButton(quiz_window, text="Close", bg_color="#C1E1C1", corner_radius=20, font=Button_font, height=30, width=60, fg_color="#32A8A0", hover_color="#144A46", command=quiz_window.destroy)
-    close_program.place(x=900, y=60)
+    question_label = CTkLabel(Open_Quiz, textvariable=question_text, font=("Arial", 15))
+    question_label.pack()
 
-    # Initial display of the first question
-    display_question(0)
+    option_buttons = []
+    for i in range(4):
+        option_button = CTkButton(Open_Quiz, text="", font=("Arial", 12),
+                                   command=lambda i=i: check_answer(questions[current_question_index]["options"][i]))
+        option_button.pack()
+        option_buttons.append(option_button)
 
-    quiz_window.mainloop()
+    for i in range(4):
+        option_buttons[i].config(text=questions[current_question_index]["options"][i])
+
+    score_label = CTkLabel(Open_Quiz, text="Score: 0/{}".format(len(questions)), font=("Arial", 12))
+    score_label.pack()
+
+    submit_button = CTkButton(Open_Quiz, text="Next", bg="lightgreen", font=("Arial", 15), command=lambda: check_answer(""))
+    submit_button.pack()
+    submit_button.place(x=100, y=400)
+
+    back_button = CTkButton(Open_Quiz, text="Back", bg="lightgreen", font=("Arial", 15), command=restart_quiz)
+    back_button.pack()
+    back_button.place(x=200, y=400)
+    back_button.config(state=DISABLED)
+
+    Open_Quiz.mainloop()
+
 
 
 open_homepage()

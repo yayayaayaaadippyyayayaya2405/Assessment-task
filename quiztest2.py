@@ -1,6 +1,6 @@
 from customtkinter import *
 from PIL import Image, ImageTk
-from CTkMessagebox import CTkMessagebox
+from tkinter import messagebox
 
 #Fonts used throughout the code 
 Title_font = ("Impact", 50, "bold", "underline")
@@ -406,7 +406,7 @@ def open_learn_window2 ():
     close_program = CTkButton (
         examples_window,
         text = "Close",
-        bg_color = "#C1E1C1",
+        bg_color = "#C1E1C1", 
         corner_radius = 20,
         font = Button_font,
         height = 30,
@@ -542,7 +542,6 @@ def open_formula_sheet ():
 
     formula_sheet.mainloop()
 
-#code for the quiz
 def open_quiz():
     quiz_window = CTk()
     quiz_window.title("Math Marvels: Capturing Volume")
@@ -576,12 +575,12 @@ def open_quiz():
 
     options = [
     [("9 cubic units", "a1"), ("27 cubic units", "a2"), ("18 cubic units", "a3"), ("36 cubic units", "a4")],
-    [("20π cubic units", "b1"), ("(write correct answer here)", "b2"), ("60π cubic units", "b3"), ("80π cubic units", "b4")],
-    [("(write correct answer here)", "c1"), ("128π cubic units", "c2"), ("256π cubic units", "c3"), ("512π cubic units", "c4")],
-    [("(27π cubic units)", "d1"), ("81π cubic units", "d2"), ("(write correct answer here)", "d3"), ("108π cubic units", "d4")],
-    [("(write correct answer here)", "e1"), ("110 cubic units", "e2"), ("130 cubic units", "e3"), ("140 cubic units", "e4")],
-    [("10 cubic units", "f1"), ("20 cubic units", "f2"), ("30 cubic units", "f3"), ("(write correct answer here)", "f4")],
-    [("(write correct answer here)", "g1"), ("421 cubic units", "g2"), ("512 cubic units", "g3"), ("729 cubic units", "g4")],
+    [("20π cubic units", "b1"), ("40π cubic units", "b2"), ("60π cubic units", "b3"), ("80π cubic units", "b4")],
+    [("64π cubic units", "c1"), ("128π cubic units", "c2"), ("256π cubic units", "c3"), ("512π cubic units", "c4")],
+    [("27π cubic units", "d1"), ("81π cubic units", "d2"), ("54π cubic units", "d3"), ("108π cubic units", "d4")],
+    [("120 cubic units", "e1"), ("110 cubic units", "e2"), ("130 cubic units", "e3"), ("140 cubic units", "e4")],
+    [("10 cubic units", "f1"), ("20 cubic units", "f2"), ("30 cubic units", "f3"), ("40 cubic units", "f4")],
+    [("343 cubic units", "g1"), ("421 cubic units", "g2"), ("512 cubic units", "g3"), ("729 cubic units", "g4")],
     [("True", "h1"), ("False", "h2")],
     [("True", "i1"), ("False", "i2")],
     [("True", "j1"), ("False", "j2")],
@@ -590,7 +589,7 @@ def open_quiz():
     ]
 
 
-    correct_answers = ["a2", "b2", "c1", "d3", "e1", "f4", "g1", "(write answer here)", "(write answer here)", "((write correct answer here))", "h1", "i1", "h2", "h1", "h2"]
+    correct_answers = ["a2", "b2", "c2", "d2", "e1", "f1", "g1", "500/3 π", "63π", "8", "h1", "i1", "h2", "h1", "h2"]
 
     # Store user's answers
     user_answers = {i + 1: StringVar() for i in range(15)}
@@ -669,6 +668,7 @@ def open_quiz():
     display_question(0)
 
     quiz_window.mainloop()
+
 
 
 open_homepage()
