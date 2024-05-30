@@ -7,10 +7,10 @@ Title_font = ("Impact", 50, "bold", "underline")
 Button_font = ("Times", 20, "italic")
 Subittle_font1 = ("Impact", 30, "bold", "italic")
 Subheading_font = ("Impact", 20, "italic")
-Text_font = (("courior", 13))
-Question_font = (("Segoe UI Black", 18, "bold"))
-mcq_font = ("courior", 15, "bold")
-Score_board_font = (("Times", 40, "bold"))
+Text_font = ("courior", 13)
+Question_font = ("Segoe UI Black", 18, "bold")
+mcq_font = ("courier", 15, "bold")
+Score_board_font = ("Times", 40, "bold")
 
 #Homepage Code 
 def open_homepage ():
