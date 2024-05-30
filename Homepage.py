@@ -8,6 +8,9 @@ Button_font = ("Times", 20, "italic")
 Subittle_font1 = ("Impact", 30, "bold", "italic")
 Subheading_font = ("Impact", 20, "italic")
 Text_font = (("courior", 13))
+Question_font = (("Segoe UI Black", 18, "bold"))
+mcq_font = ("courior", 15, "bold")
+Score_board_font = (("Times", 40, "bold"))
 
 #Homepage Code 
 def open_homepage ():
@@ -79,7 +82,7 @@ def open_homepage ():
         height = 50,
         width = 300,
         fg_color = "#F54E42",
-        hover_color = "#144A46",
+        hover_color = "#4A1414",
         command = Quiz,
     )
     Quiz_button.place(x=350,y=420)
@@ -302,6 +305,7 @@ def open_learn_window2 ():
                                   )
     examples_window_tittle.place(x=20,y=15)
 
+
     #Pictures containing examples (Made on Canva)
     Prism_example = CTkImage(light_image=Image.open("Images/Example1.png"),
                              dark_image=Image.open("Images/Example1.png"),
@@ -420,6 +424,7 @@ def open_learn_window2 ():
 
     examples_window.mainloop()
 
+
 #Code for Fomrulae Window 
 def open_formula_sheet ():
     formula_sheet = CTk()
@@ -472,6 +477,19 @@ def open_formula_sheet ():
         command = formula_sheet.destroy,
         )
     close_program.place(x=900,y=60)
+
+
+    #Picture for kids Entertainment (Canva Produced)
+    Relateable_Kid_formula_page = CTkImage(light_image=Image.open("Images/formula_person_img1.png"),
+                             dark_image=Image.open("Images/formula_person_img1.png"),
+                             size = (150,150)
+                             )
+    Relateable_Kid_formula_page_display = CTkLabel(formula_sheet, text="",
+                                     image=Relateable_Kid_formula_page,
+                                     bg_color="#C1E1C1"
+                                     )
+    Relateable_Kid_formula_page_display.place(x=550,y=2)
+
 
     #Images for Formulae (Make with canva)
     Prism_Volume = CTkImage(light_image=Image.open("Images/Prism_Volume.png"),
@@ -541,60 +559,76 @@ def open_formula_sheet ():
 
 
     formula_sheet.mainloop()
+    
 
-#code for the quiz
+#code for the Quiz window 
 def open_quiz():
     quiz_window = CTk()
     quiz_window.title("Math Marvels: Capturing Volume")
     quiz_window.minsize(width=1000, height=600)
     quiz_window.maxsize(width=1000, height=600)
     quiz_window.resizable(False, False)
-    quiz_window.config(bg="#C1E1C1")
+    quiz_window.config(bg="#FF6961")
 
-    quiz_window_title = CTkLabel(quiz_window, text='Quiz Regarding Volume ;)',
-                                  text_color="#4263F5", bg_color="#C1E1C1", font=Title_font)
-    quiz_window_title.place(x=150, y=20)
+    quiz_window_title = CTkLabel(quiz_window, text='Quiz',
+                                  text_color="#4263F5", bg_color="#FF6961", font=Title_font)
+    quiz_window_title.place(x=20, y=20)
 
-    # Questions and Answers
+    # Questions and Answers and Options for Radiobuttons (MCQ and T/F)
     questions = [
         "1. What is the volume of a cube with side length 3 units?",
-        "2. What is the volume of a cylinder with radius 2 units and height 5 units?",
-        "3. What is the volume of a sphere with radius 4 units?",
+        "2. What is the formula for the volume of a rectangular prism?",
+        "3. What is the volume of a sphere with radius 6 units?",
         "4. What is the volume of a cone with radius 3 units and height 9 units?",
         "5. What is the volume of a rectangular prism with dimensions 4x5x6 units?",
         "6. What is the volume of a pyramid with base area 10 square units and height 3 units?",
         "7. What is the volume of a cube with side length 7 units?",
-        "8. Type the volume of a sphere with radius 5 units (in terms of π):",
-        "9. Type the volume of a cylinder with radius 3 units and height 7 units (in terms of π):",
-        "10. Type the volume of a cube with side length 2 units:",
-        "11. True or False: The volume of a cube with side length 4 units is 64 cubic units.",
-        "12. True or False: The volume of a sphere is given by the formula V = 4/3 πr³.",
+        "8. True or False: The volume of a sphere is given by the formula V = 4/3 πr³.",
+        "9. True or False: The volume of a cylinder with radius 3 units and height 7 units is 63π cubic units.",
+        "10. True or False: The volume of a triangular prism is given by halving the product of B, H.",
+        "11. True or False: The volume of a cube with side length 4 units is 16 cubic units.",
+        "12. True or False: The volume of a sphere with diameter 6 is 36 pi.",
         "13. True or False: The volume of a cone with radius 3 units and height 6 units is 18π cubic units.",
-        "14. True or False: The volume of a rectangular prism is calculated as length × width × height.",
+        "14. True or False: The volume of a cylinder is calculated as π × radius squared × height.",
         "15. True or False: The volume of a cylinder with radius 2 units and height 5 units is 20 cubic units."
     ]
 
     options = [
-    [("9 cubic units", "a1"), ("27 cubic units", "a2"), ("18 cubic units", "a3"), ("36 cubic units", "a4")],
-    [("20π cubic units", "b1"), ("(write correct answer here)", "b2"), ("60π cubic units", "b3"), ("80π cubic units", "b4")],
-    [("(write correct answer here)", "c1"), ("128π cubic units", "c2"), ("256π cubic units", "c3"), ("512π cubic units", "c4")],
-    [("(27π cubic units)", "d1"), ("81π cubic units", "d2"), ("(write correct answer here)", "d3"), ("108π cubic units", "d4")],
-    [("(write correct answer here)", "e1"), ("110 cubic units", "e2"), ("130 cubic units", "e3"), ("140 cubic units", "e4")],
-    [("10 cubic units", "f1"), ("20 cubic units", "f2"), ("30 cubic units", "f3"), ("(write correct answer here)", "f4")],
-    [("(write correct answer here)", "g1"), ("421 cubic units", "g2"), ("512 cubic units", "g3"), ("729 cubic units", "g4")],
-    [("True", "h1"), ("False", "h2")],
-    [("True", "i1"), ("False", "i2")],
-    [("True", "j1"), ("False", "j2")],
-    [("True", "k1"), ("False", "k2")],
-    [("True", "l1"), ("False", "l2")]
+        [("9 cubic units", "a1"), ("27 cubic units", "a2"), ("18 cubic units", "a3"), ("36 cubic units", "a4")],
+        [("3/4π x Radius", "b1"), ("L x W x H", "b2"), ("L x W", "b3"), ("1/3 x L x W x H", "b4")],
+        [("288π cubic units", "c1"), ("128π cubic units", "c2"), ("256π cubic units", "c3"), ("512π cubic units", "c4")],
+        [("26π cubic units", "d1"), ("81π cubic units", "d2"), ("27π Cubic Units", "d3"), ("108π cubic units", "d4")],
+        [("120 cubic units", "e1"), ("110 cubic units", "e2"), ("130 cubic units", "e3"), ("140 cubic units", "e4")],
+        [("15 cubic units", "f1"), ("20 cubic units", "f2"), ("30 cubic units", "f3"), ("10 Cubic Units", "f4")],
+        [("343 cubic units", "g1"), ("421 cubic units", "g2"), ("512 cubic units", "g3"), ("729 cubic units", "g4")],
+        [("True", "h1"), ("False", "h2")],
+        [("True", "i1"), ("False", "i2")],
+        [("True", "j1"), ("False", "j2")],
+        [("True", "k1"), ("False", "k2")],
+        [("True", "l1"), ("False", "l2")],
+        [("True", "m1"), ("False", "m2")],
+        [("True", "n1"), ("False", "n2")],
+        [("True", "o1"), ("False", "o2")]
     ]
 
-
-    correct_answers = ["a2", "b2", "c1", "d3", "e1", "f4", "g1", "(write answer here)", "(write answer here)", "((write correct answer here))", "h1", "i1", "h2", "h1", "h2"]
+    correct_answers = ["a2", 
+                       "b2", 
+                       "c1", 
+                       "d3", 
+                       "e1", 
+                       "f4", 
+                       "g1", 
+                       "h1", 
+                       "i1", 
+                       "j2", 
+                       "k2", 
+                       "l1", 
+                       "m2", 
+                       "n1", 
+                       "o2"]
 
     # Store user's answers
     user_answers = {i + 1: StringVar() for i in range(15)}
-    user_entries = {}
 
     # Function to display question
     def display_question(index):
@@ -602,33 +636,65 @@ def open_quiz():
             if widget not in [homepage_return, close_program, quiz_window_title]:
                 widget.destroy()
 
-        question_label = CTkLabel(quiz_window, text=questions[index], text_color="#3F49A4", bg_color="#C1E1C1", font=Text_font)
+        question_label = CTkLabel(quiz_window, 
+                                  text=questions[index], 
+                                  text_color="#3F49A4", 
+                                  bg_color="#FF6961", 
+                                  font=Question_font)
         question_label.place(x=40, y=100)
 
         if index < 7:
             option_y_offset = 130
             for option_text, option_value in options[index]:
-                option_button = CTkRadioButton(quiz_window, text=option_text, value=option_value, variable=user_answers[index + 1], bg_color="#C1E1C1", text_color="#3F49A4", font=Text_font)
-                option_button.place(x=60, y=option_y_offset)
-                option_y_offset += 30
-        elif 7 <= index < 10:
-            user_entries[index + 1] = CTkEntry(quiz_window, textvariable=user_answers[index + 1], font=Text_font, width=200)
-            user_entries[index + 1].place(x=60, y=130)
-        else:
-            option_y_offset = 130
-            for option_text, option_value in options[index - 3]:
-                option_button = CTkRadioButton(quiz_window, text=option_text, value=option_value, variable=user_answers[index + 1], bg_color="#C1E1C1", text_color="#3F49A4", font=Text_font)
+                option_button = CTkRadioButton(quiz_window, 
+                                               text=option_text, 
+                                               value=option_value, 
+                                               variable=user_answers[index + 1], 
+                                               bg_color="#FF6961", 
+                                               text_color="#3F49A4", 
+                                               font=mcq_font)
                 option_button.place(x=60, y=option_y_offset)
                 option_y_offset += 30
 
-        previous_button = CTkButton(quiz_window, text="Previous", bg_color="#C1E1C1", corner_radius=10, font=Button_font, height=50, width=150, fg_color="#32A8A0", hover_color="#144A46", command=lambda: handle_navigation(index - 1)) if index > 0 else None
+        else:
+            option_y_offset = 130
+            for option_text, option_value in options[index]:
+                option_button = CTkRadioButton(quiz_window, 
+                                               text=option_text, 
+                                               value=option_value, 
+                                               variable=user_answers[index + 1], 
+                                               bg_color="#FF6961", 
+                                               text_color="#3F49A4", 
+                                               font=mcq_font)
+                option_button.place(x=60, y=option_y_offset)
+                option_y_offset += 30
+
+        previous_button = CTkButton(quiz_window, 
+                                    text="Previous", 
+                                    bg_color="#FF6961", 
+                                    corner_radius=10, 
+                                    font=Button_font, 
+                                    height=50, 
+                                    width=150, 
+                                    fg_color="#A61A1A", 
+                                    hover_color="#4A1414", 
+                                    command=lambda: handle_navigation(index - 1)) if index > 0 else None
         if previous_button:
             previous_button.place(x=200, y=500)
 
         next_button_text = "Submit" if index == len(questions) - 1 else "Next"
-        next_button = CTkButton(quiz_window, text=next_button_text, bg_color="#C1E1C1", corner_radius=10, font=Button_font, height=50, width=150, fg_color="#32A8A0", hover_color="#144A46", command=lambda: handle_navigation(index + 1))
+        next_button = CTkButton(quiz_window, 
+                                text=next_button_text, 
+                                bg_color="#FF6961", 
+                                corner_radius=10, 
+                                font=Button_font, 
+                                height=50, 
+                                width=150, 
+                                fg_color="#A61A1A", 
+                                hover_color="#4A1414", 
+                                command=lambda: handle_navigation(index + 1))
         next_button.place(x=400, y=500)
-
+        
     # Function to handle navigation between questions
     def handle_navigation(index):
         if 0 <= index < len(questions):
@@ -647,11 +713,24 @@ def open_quiz():
             if widget not in [homepage_return, close_program, quiz_window_title]:
                 widget.destroy()
         result_text = f"You scored {score} out of {len(questions)} ({percentage:.2f}%)"
-        result_label = CTkLabel(quiz_window, text=result_text, text_color="#4263F5", bg_color="#C1E1C1", font=Subheading_font)
-        result_label.place(x=400, y=250)
+        result_label = CTkLabel(quiz_window, 
+                                text=result_text, 
+                                text_color="#4263F5", 
+                                bg_color="#FF6961", 
+                                font=Score_board_font)
+        result_label.place(x=225, y=250)
 
-        back_to_home_button = CTkButton(quiz_window, text="Back to Home", bg_color="#C1E1C1", corner_radius=20, font=Button_font, height=50, width=150, fg_color="#32A8A0", hover_color="#144A46", command=back_to_homepage)
-        back_to_home_button.place(x=400, y=350)
+        back_to_home_button = CTkButton(quiz_window, 
+                                        text="Back to Home", 
+                                        bg_color="#FF6961", 
+                                        corner_radius=20, 
+                                        font=Button_font, 
+                                        height=100, 
+                                        width=200, 
+                                        fg_color="#BE73C9", 
+                                        hover_color="#47144A", 
+                                        command=back_to_homepage)
+        back_to_home_button.place(x=400, y=325)
 
     # Commands for buttons on Quiz window
     def back_to_homepage():
@@ -659,16 +738,33 @@ def open_quiz():
         open_homepage()
 
     # Buttons for Quiz Window
-    homepage_return = CTkButton(quiz_window, text="Back", bg_color="#C1E1C1", corner_radius=20, font=Button_font, height=30, width=60, fg_color="#32A8A0", hover_color="#144A46", command=back_to_homepage)
-    homepage_return.place(x=900, y=20)
+    homepage_return = CTkButton(quiz_window, 
+                                text="Exit Quiz", 
+                                bg_color="#FF6961", 
+                                corner_radius=20, 
+                                font=Button_font, 
+                                height=30, 
+                                width=60, 
+                                fg_color="#32A8A0", 
+                                hover_color="#144A46", 
+                                command=back_to_homepage)
+    homepage_return.place(x=870, y=20)
 
-    close_program = CTkButton(quiz_window, text="Close", bg_color="#C1E1C1", corner_radius=20, font=Button_font, height=30, width=60, fg_color="#32A8A0", hover_color="#144A46", command=quiz_window.destroy)
+    close_program = CTkButton(quiz_window, 
+                              text="Close", 
+                              bg_color="#FF6961", 
+                              corner_radius=20, 
+                              font=Button_font, 
+                              height=30, 
+                              width=60, 
+                              fg_color="#32A8A0", 
+                              hover_color="#144A46", 
+                              command=quiz_window.destroy)
     close_program.place(x=900, y=60)
 
     # Initial display of the first question
     display_question(0)
 
     quiz_window.mainloop()
-
 
 open_homepage()
