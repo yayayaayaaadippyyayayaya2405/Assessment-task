@@ -12,6 +12,7 @@ Question_font = ("Segoe UI Black", 18, "bold")
 mcq_font = ("courier", 15, "bold")
 Score_board_font = ("Times", 40, "bold")
 
+
 #Homepage Code 
 def open_homepage ():
     homepage = CTk()
@@ -102,6 +103,7 @@ def open_homepage ():
     )
     Homepage_Quit_button.place(x=15,y=20)
 
+
     #images for homepage 
     Mr_octopus_homepage = CTkImage(light_image=Image.open("Images/homepage_img1.png"), 
                                    dark_image=Image.open("Images/homepage_img1.png"),
@@ -127,6 +129,7 @@ def open_homepage ():
 
     homepage.mainloop()
 
+
 #Code for Learn Window 
 def open_Learn_window ():
     learn_window = CTk()
@@ -142,6 +145,7 @@ def open_Learn_window ():
                                   )
     learn_window_tittle.place(x=20,y=20)
 
+
     # Teaching and explaining Volume 
     learning_window_subtittle = (CTkLabel(learn_window, text=("What is Volume"),
                                           text_color="#3F49A4",
@@ -150,7 +154,7 @@ def open_Learn_window ():
                                           )
     learning_window_subtittle.place(x=40,y=120)
 
-    # Adding volume definition with separate lines and subheadings
+    # Adding volume definition with separate lines and subheadings 
     Volume_definition1 = CTkLabel(learn_window, text="Let's imagine you have a big box.",
                                   text_color="#3F49A4",
                                   bg_color="#C1E1C1",
@@ -165,7 +169,7 @@ def open_Learn_window ():
                                   font=Text_font,
                                   wraplength=900,
                                   anchor="w") 
-    Volume_definition2.place(x=40, y=185, relwidth=0.95)
+    Volume_definition2.place(x=40, y=185, relwidth=0.95) #redwidth floats between 0.0 and 1.0 as a fraction of the width
 
     Volume_definition3 = CTkLabel(learn_window, text="It's like asking, 'How many little cubes can fit inside this box?'",
                                   text_color="#3F49A4",
@@ -385,7 +389,7 @@ def open_learn_window2 ():
     Example_giving_kid_display.place(x=450,y=5)
 
 
-    #Commands for buttons on Examples Window 
+    #Commands for buttons on Examples Window (Learn Page 2)
     def back_to_homepage ():
         examples_window.destroy ()
         open_Learn_window ()
@@ -440,6 +444,7 @@ def open_formula_sheet ():
                                   )
     formulae_page_tittle.place(x=20,y=20)
 
+
     #Commands for Buttons on Formulae Window 
     def back_to_homepage ():
         formula_sheet.destroy ()
@@ -462,7 +467,6 @@ def open_formula_sheet ():
         )
     homepage_return.place(x=900,y=20)
 
-    
 
     close_program = CTkButton (
         formula_sheet,
@@ -514,7 +518,7 @@ def open_formula_sheet ():
     Triangular_Prism_display.place(x=335,y=90)
 
 
-    Pyramind_Volume = CTkImage(light_image=Image.open("Images/Pyramid_volume.png"),
+        Pyramind_Volume = CTkImage(light_image=Image.open("Images/Pyramid_volume.png"),
                              dark_image=Image.open("Images/Pyramid_volume.png"),
                              size = (350,350)
                              )
@@ -569,7 +573,6 @@ def open_quiz():
     quiz_window.maxsize(width=1000, height=600)
     quiz_window.resizable(False, False)
     quiz_window.config(bg="#FF6961")
-
     quiz_window_title = CTkLabel(quiz_window, text='Quiz',
                                   text_color="#4263F5", bg_color="#FF6961", font=Title_font)
     quiz_window_title.place(x=20, y=20)
@@ -579,7 +582,7 @@ def open_quiz():
         "1. What is the volume of a cube with side length 3 units?",
         "2. What is the formula for the volume of a rectangular prism?",
         "3. What is the volume of a sphere with radius 6 units?",
-        "4. What is the volume of a cone with radius 3 units and height 9 units?",
+        "4. What is the volume of a cylinder with radius 3 units and height 9 units?",
         "5. What is the volume of a rectangular prism with dimensions 4x5x6 units?",
         "6. What is the volume of a pyramid with base area 10 square units and height 3 units?",
         "7. What is the volume of a cube with side length 7 units?",
@@ -588,7 +591,7 @@ def open_quiz():
         "10. True or False: The volume of a triangular prism is given by halving the product of B, H.",
         "11. True or False: The volume of a cube with side length 4 units is 16 cubic units.",
         "12. True or False: The volume of a sphere with diameter 6 is 36 pi.",
-        "13. True or False: The volume of a cone with radius 3 units and height 6 units is 18π cubic units.",
+        "13. True or False: The volume of a cylinder with radius 3 units and height 6 units is 18π cubic units.",
         "14. True or False: The volume of a cylinder is calculated as π × radius squared × height.",
         "15. True or False: The volume of a cylinder with radius 2 units and height 5 units is 20 cubic units."
     ]
@@ -597,7 +600,7 @@ def open_quiz():
         [("9 cubic units", "a1"), ("27 cubic units", "a2"), ("18 cubic units", "a3"), ("36 cubic units", "a4")],
         [("3/4π x Radius", "b1"), ("L x W x H", "b2"), ("L x W", "b3"), ("1/3 x L x W x H", "b4")],
         [("288π cubic units", "c1"), ("128π cubic units", "c2"), ("256π cubic units", "c3"), ("512π cubic units", "c4")],
-        [("26π cubic units", "d1"), ("81π cubic units", "d2"), ("27π Cubic Units", "d3"), ("108π cubic units", "d4")],
+        [("26π cubic units", "d1"), ("27π Cubic Units", "d2"), ("81π cubic units", "d3"), ("108π cubic units", "d4")],
         [("120 cubic units", "e1"), ("110 cubic units", "e2"), ("130 cubic units", "e3"), ("140 cubic units", "e4")],
         [("15 cubic units", "f1"), ("20 cubic units", "f2"), ("30 cubic units", "f3"), ("10 Cubic Units", "f4")],
         [("343 cubic units", "g1"), ("421 cubic units", "g2"), ("512 cubic units", "g3"), ("729 cubic units", "g4")],
@@ -610,6 +613,7 @@ def open_quiz():
         [("True", "n1"), ("False", "n2")],
         [("True", "o1"), ("False", "o2")]
     ]
+
 
     correct_answers = ["a2", 
                        "b2", 
@@ -702,7 +706,7 @@ def open_quiz():
         elif index == len(questions):
             show_score()
 
-    # Function to check the answers and show the score
+    # Function to check the answers and show the score on the scoreboard
     def show_score():
         score = 0
         for i, correct_answer in enumerate(correct_answers):
@@ -762,9 +766,10 @@ def open_quiz():
                               command=quiz_window.destroy)
     close_program.place(x=900, y=60)
 
-    # Initial display of the first question
+    # Display of the first question which leads into other questions
     display_question(0)
 
     quiz_window.mainloop()
+
 
 open_homepage()
